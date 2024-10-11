@@ -32,7 +32,7 @@ export default async function Home() {
   console.log(blogs, "blogs");
   return (
     <>
-      <div className="items-center justify-center">
+      <div className="mt-9 items-center justify-center">
         <ModeToggle />
         <Blog />
         <HeroBulletin />
