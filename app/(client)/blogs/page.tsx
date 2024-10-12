@@ -1,9 +1,9 @@
 import BlogCard from "@/components/Blog/BlogCard";
 import Breadcrumb from "@/components/Blog/Breadcrumb";
-import { BlogData } from "@/constants/index";
 import { Metadata } from "next";
-import Link from "next/link";
 import React from "react";
+import { getBlogs } from "@/sanityQueries";
+import { urlFor } from "@/sanity/lib/image";
 
 export const metadata: Metadata = {
   title: "Travel Blogs | Nepal",
@@ -20,7 +20,8 @@ export const metadata: Metadata = {
   ],
 };
 
-const Allblogs = () => {
+const Allblogs = async () => {
+  const blogs = await getBlogs();
   return (
     <>
       <Breadcrumb page="" pageTitle="Read our Blogs" bgUrl="/assets/background/blogcrumb.webp" />
@@ -31,8 +32,13 @@ const Allblogs = () => {
           <div className="grid grid-cols-12 lg:gap-12 gap-base">
             <div className="lg:col-span-12 col-span-12">
               <div className="grid md:grid-cols-3 grid-cols-2 gap-base">
-                {BlogData.blogs.map((item) => (
-                  <BlogCard key={item.id} title={item.title} img={item.img} />
+                {blogs.map((blog) => (
+                  <BlogCard
+                    key={blog._id}
+                    title={blog.title}
+                    blogCardImage={urlFor(blog.blogCardImage).url()}
+                    publishedAt={blog.publishedAt}
+                  />
                 ))}
               </div>
             </div>

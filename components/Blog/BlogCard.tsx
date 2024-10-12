@@ -1,18 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BlogCardInterface } from "@/utils/interface";
 
-const BlogCard = ({ img, title, tags }: { img: string; title: string; tags?: string[] }) => {
+const BlogCard = ({ slug, title, blogCardImage, publishedAt }: BlogCardInterface) => {
+  // Check if blogCardImage and its asset exists
   return (
     <div className="blog_card__one group wow fadeInUp" data-wow-delay="0.2s">
       <div className="overflow-hidden">
-        <Link href="/attraction">
+        <Link href={`/blogs/${slug.current}`}>
+          {/* Use the correct image URL using the builder */}
           <Image
-            height={445.95}
+            height={Math.round(445.95)}
             width={500}
-            src={img}
-            alt={title}
-            placeholder="blur"
-            blurDataURL="/assets/images/blogs/placeholder.webp"
+            src={blogCardImage} // Correct image URL
+            alt={title || "Blog Card"} // Fallback alt text
             className="w-full hover:scale-105 duration-300"
           />
         </Link>
@@ -21,14 +22,15 @@ const BlogCard = ({ img, title, tags }: { img: string; title: string; tags?: str
         <ul className="flex items-center text-[13px] font-medium text-dark-2">
           <li className="flex items-center relative first:pl-0 pl-2 pr-2 before:content-[''] before:absolute before:h-2/3 before:w-[1px] before:bg-dark-2 before:-translate-y-1/2 before:top-1/2 before:left-0 first:before:hidden">
             <i className="bi bi-calendar-date text-[15px]" />
-            <span className="ml-2">24 Sep 2022 · 6:30 PM</span>
+            <span className="ml-2">{new Date(publishedAt).toLocaleDateString()}</span>{" "}
+            {/* Format date properly */}
           </li>
         </ul>
         <h3 className="card-title-alpha mt-4">
-          <Link href="/blog-details">{title}</Link>
+          <Link href={`/blogs/${slug.current}`}>{title}</Link>
         </h3>
         <Link
-          href="/blog-details"
+          href={`/blogs/${slug.current}`}
           className="group ease-in hover:text-primary-1 duration-200 inline-flex items-center mt-4 lg:text-base text-sm text-dark-1 font-medium">
           <span className="mr-2">Read More</span>
           <svg

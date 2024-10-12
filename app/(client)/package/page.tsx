@@ -1,8 +1,9 @@
 import PackageCard from "@/components/Home/PackageCard";
 import Breadcrumb from "@/components/Blog/Breadcrumb";
-import { PackageDataOne } from "@/constants/index";
 import { Metadata } from "next";
 import Link from "next/link";
+import { getTours } from "@/sanityQueries";
+import { urlFor } from "@/sanity/lib/image";
 
 export const metadata: Metadata = {
   title: "All Packages | Nepal Tours",
@@ -23,29 +24,24 @@ export const metadata: Metadata = {
   ],
 };
 
-const Allpackages = () => {
+const Allpackages = async () => {
+  const tours = await getTours();
   return (
     <>
       <Breadcrumb page="" pageTitle="Our Packages" bgUrl="/assets/background/pashupati.webp" />
 
       {/*========== FEATURED PACKAGE STYLE ONE START==========*/}
       <div className="bg-gradient-to-t to-[#FFF1EC] from-white z-1 relative lg:pt-30 pt-24 ">
-        <div className="absolute top-[10%] right-0 max-w-[14%] z-minus lg:inline-block hidden">
-          <img src="./assets/images/illustration/tree-illustration.png" alt="leaf" />
-        </div>
-        <div className="absolute top-[5%] left-[1%] max-w-[9%] z-minus lg:inline-block hidden">
-          <img src="./assets/images/illustration/bird-illustration.png" alt="leaf" />
-        </div>
         <div className="container">
           <div className="grid grid-cols-12 lg:gap-12 gap-base">
             <div className="lg:col-span-12 col-span-12 grid md:grid-cols-3 grid-cols-1 gap-base">
-              {PackageDataOne.packages.slice(0, 8).map((item, index) => (
+              {tours.map((tour) => (
                 <PackageCard
-                  key={item.id}
-                  title={item.title}
-                  img={item.img}
-                  price={item.price}
-                  duration={item.duration}
+                  key={tour._id}
+                  title={tour.title}
+                  tourImage={urlFor(tour.tourImage.asset).url()} // Resolve image URL
+                  price={tour.price}
+                  day={tour.day}
                 />
               ))}
             </div>
