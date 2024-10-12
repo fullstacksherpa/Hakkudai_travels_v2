@@ -32,6 +32,12 @@ export const blog = {
       validation: (Rule: Rule) => Rule.max(200).error("Max 200 character is allowed"),
     },
     {
+      name: "blogCardImage",
+      title: "Blog Card Image",
+      type: "image",
+      options: {},
+    },
+    {
       name: "body",
       title: "Body",
       type: "array",

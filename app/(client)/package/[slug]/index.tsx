@@ -1,0 +1,56 @@
+import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
+import { PortableText } from "next-sanity";
+import Image from "next/image";
+
+// Fetch data based on tour ID
+async function getData(slug: string) {
+  const query = `
+     *[_type == "tour" && slug.current == '${slug}']{
+     title, price, day, tourImage, body
+     }[0]
+  `;
+  const data = await client.fetch(query);
+  return data;
+}
+
+export default async function PackageDetail({ params }: { params: { slug: string } }) {
+  const data = await getData(params.slug);
+
+  // Handle case where no data is returned
+  if (!data) {
+    return (
+      <div className="mt-12 text-center">
+        <h1 className="text-3xl font-bold">Package Not Found</h1>
+        <p>We couldn't find the package you're looking for.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mt-12">
+      <h1>
+        <span className="mt-2 block text-3xl text-center leading-8 font-bold tracking-tight sm:text-4xl">
+          {data.title}
+        </span>
+      </h1>
+
+      {/* Render image with optimized size */}
+      {data.tourImage && (
+        <Image
+          src={urlFor(data.tourImage).width(800).height(800).url()} // Request smaller image from Sanity
+          width={800}
+          height={800}
+          alt={data.title}
+          priority
+          className="rounded-lg mt-8 border mx-auto"
+        />
+      )}
+
+      {/* Render body text using PortableText */}
+      <div className="mt-16 prose prose-lg md:prose-2xl dark:prose-invert w-[90%] mx-auto">
+        {data.body ? <PortableText value={data.body} /> : <p>No description available.</p>}
+      </div>
+    </div>
+  );
+}

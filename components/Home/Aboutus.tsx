@@ -97,26 +97,6 @@ const AboutOne = () => {
                 </li>
               ))}
             </ul>
-            <div className="mt-10 flex justify-center items-center">
-              <Link href="/about" className="btn_primary__v1">
-                Find Out More
-                <svg
-                  width={20}
-                  height={20}
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M7.42505 16.5999L12.8584 11.1666C13.5 10.5249 13.5 9.4749 12.8584 8.83324L7.42505 3.3999"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeMiterlimit={10}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Link>
-            </div>
           </div>
         </div>
       </div>
