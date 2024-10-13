@@ -27,7 +27,7 @@ const Allblogs = async () => {
       <Breadcrumb page="" pageTitle="Read our Blogs" bgUrl="/assets/background/blogcrumb.webp" />
 
       {/*========== BLOG LIST STYLE START ==========*/}
-      <div className="lg:pt-30 pt-24 relative z-1 bg-gradient-to-t to-[#FFF1EC] from-white">
+      <div className="lg:pt-30 pt-24 relative z-1  mx-auto px-2 md:px-4 lg:max-w-screen-lg max-w-screen-sm md:max-w-screen-md">
         <div className="container">
           <div className="grid grid-cols-12 lg:gap-12 gap-base">
             <div className="lg:col-span-12 col-span-12">

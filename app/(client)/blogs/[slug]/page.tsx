@@ -17,9 +17,9 @@ async function getData(slug: string) {
 export default async function BlogArticle({ params }: { params: { slug: string } }) {
   const data = await getData(params.slug);
   return (
-    <div className="mt-12">
+    <div className="mt-[12%] pt-7">
       <h1>
-        <span className="mt-2 block text-3xl text-center leading-8 font-bold tracking-tight sm:text-4xl">
+        <span className="mt-2 block text-3xl text-center leading-10 font-bold tracking-tight sm:text-2xl">
           {data.title}
         </span>
       </h1>

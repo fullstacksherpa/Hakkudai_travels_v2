@@ -35,15 +35,15 @@ export default async function PackageDetail({ params }: { params: { slug: string
     return (
       <div className="mt-12 text-center">
         <h1 className="text-3xl font-bold">Package Not Found</h1>
-        <p>We couldn't find the package you're looking for.</p>
+        <p>We could not find the package you are looking for.</p>
       </div>
     );
   }
 
   return (
-    <div className="mt-12">
+    <div className="mt-[12%] pt-7">
       <h1>
-        <span className="mt-2 block text-3xl text-center leading-8 font-bold tracking-tight sm:text-4xl">
+        <span className="mt-2 block text-3xl text-center leading-10 font-bold tracking-tight sm:text-2xl">
           {data.title}
         </span>
       </h1>

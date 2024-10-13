@@ -6,7 +6,7 @@ import BackToTop from "./BackToTop";
 const Footer = () => {
   return (
     <div
-      className="footer_style__one bg-center bg-cover bg-no-repeat mt-17 pt-17 bg-fixed overflow-hidden"
+      className="footer_style__one bg-center bg-cover bg-no-repeat mt-17 pt-17 bg-fixed overflow-hidden px-3 md:px-6 pb-5 md:pb-8"
       style={{
         background: `linear-gradient( rgba(1, 8, 11, .8)9%, rgba(8, 8, 11, .8)9%), url("${FooterData.bgImg}")`,
       }}>
