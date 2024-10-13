@@ -26,6 +26,7 @@ export const metadata: Metadata = {
 
 const Allpackages = async () => {
   const tours = await getTours();
+  console.log(tours, "checking");
   return (
     <>
       <Breadcrumb page="" pageTitle="Our Packages" bgUrl="/assets/background/pashupati.webp" />
@@ -37,6 +38,7 @@ const Allpackages = async () => {
             <div className="lg:col-span-12 col-span-12 grid md:grid-cols-3 grid-cols-1 gap-base">
               {tours.map((tour) => (
                 <PackageCard
+                  slug={tour.slug.current}
                   key={tour._id}
                   title={tour.title}
                   tourImage={urlFor(tour.tourImage.asset).url()} // Resolve image URL

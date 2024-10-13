@@ -24,10 +24,6 @@ const links = [
     path: "/package",
   },
   {
-    title: "Attraction",
-    path: "/attraction",
-  },
-  {
     title: "Blogs",
     path: "/blogs",
   },

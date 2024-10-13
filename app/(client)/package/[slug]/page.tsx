@@ -10,11 +10,24 @@ async function getData(slug: string) {
      title, price, day, tourImage, body
      }[0]
   `;
+  //output
+  // {
+  //     price:3999
+  //   day:2
+  //   tourImage:{…} 2 properties
+  //   _type:image
+  //   asset:{…} 2 properties
+  //   _ref:image-5df3edad76be1295bd5b074886584ac974b40411-719x583-webp
+  //   _type:reference
+  //   body:null
+  //   title:Sukute Beach
+  // }
   const data = await client.fetch(query);
   return data;
 }
 
 export default async function PackageDetail({ params }: { params: { slug: string } }) {
+  console.log(params);
   const data = await getData(params.slug);
 
   // Handle case where no data is returned
@@ -38,9 +51,9 @@ export default async function PackageDetail({ params }: { params: { slug: string
       {/* Render image with optimized size */}
       {data.tourImage && (
         <Image
-          src={urlFor(data.tourImage).width(800).height(800).url()} // Request smaller image from Sanity
-          width={800}
-          height={800}
+          src={urlFor(data.tourImage).width(1200).height(1000).url()} // Request smaller image from Sanity
+          width={1200}
+          height={1000}
           alt={data.title}
           priority
           className="rounded-lg mt-8 border mx-auto"

@@ -34,6 +34,7 @@ const Allblogs = async () => {
               <div className="grid md:grid-cols-3 grid-cols-2 gap-base">
                 {blogs.map((blog) => (
                   <BlogCard
+                    slug={blog.slug}
                     key={blog._id}
                     title={blog.title}
                     blogCardImage={urlFor(blog.blogCardImage).url()}

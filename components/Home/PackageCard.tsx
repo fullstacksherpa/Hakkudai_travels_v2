@@ -6,7 +6,7 @@ const PackageCard = ({ title, price, day, tourImage, slug }: TourCardInterface) 
   return (
     <div className="group/card package-card-style-one wow fadeInUp">
       {/* Link wrapping the whole card */}
-      <Link href={`/package/${slug.current}`}>
+      <Link href={`/package/${slug}`}>
         <div className="overflow-hidden relative">
           <Image
             width={4466}

@@ -81,10 +81,7 @@ export interface Tour {
 }
 
 export interface TourCardInterface {
-  slug: {
-    _type: "slug";
-    current: string;
-  };
+  slug: string;
   title: string; // Title of the tour
   price: number; // Price of the tour
   day: string; // Number of days (this should follow the format validation from earlier if necessary)

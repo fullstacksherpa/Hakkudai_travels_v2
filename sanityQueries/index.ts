@@ -28,7 +28,8 @@ export async function getTours() {
   price,
     day,
     tourImage,
-    body
+    body,
+    slug
 }
   `;
   const data = await client.fetch(query);

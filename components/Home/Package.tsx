@@ -8,6 +8,7 @@ interface PackageProps {
 }
 
 const Package = ({ tours }: PackageProps) => {
+  console.log(tours);
   return (
     <div className="package_style__one lg:pt-30 pt-24 lg:pb-30 pb-24 z-1 relative">
       <div className="container">
@@ -18,7 +19,8 @@ const Package = ({ tours }: PackageProps) => {
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-base">
           {tours.slice(0, 5).map((tour) => (
             <PackageCard
-              slug={tour.slug}
+              key={tour._id}
+              slug={tour.slug.current}
               title={tour.title}
               tourImage={urlFor(tour.tourImage.asset).url()} // Resolve image URL
               price={tour.price}
