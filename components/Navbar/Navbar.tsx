@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import throttle from "lodash/throttle";
 import Link from "next/link";
 import Links from "./Links";
@@ -9,24 +9,27 @@ const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [bgColor, setBgColor] = useState("transparent"); // Track background color
 
-  const handleScroll = throttle(() => {
-    const currentScrollY = window.scrollY;
+  const handleScroll = useCallback(
+    throttle(() => {
+      const currentScrollY = window.scrollY;
 
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-      setShowNavbar(false);
-    } else {
-      setShowNavbar(true);
-    }
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setShowNavbar(false);
+      } else {
+        setShowNavbar(true);
+      }
 
-    // Change the background color after scrolling
-    if (currentScrollY > 50) {
-      setBgColor("bg-[#022c22]"); // Set bg color when user scrolls down
-    } else {
-      setBgColor("bg-transparent"); // Keep it transparent when at the top
-    }
+      // Change the background color after scrolling
+      if (currentScrollY > 50) {
+        setBgColor("bg-[#022c22]"); // Set bg color when user scrolls down
+      } else {
+        setBgColor("bg-transparent"); // Keep it transparent when at the top
+      }
 
-    setLastScrollY(currentScrollY);
-  }, 200); // Throttle the scroll handler to fire every 200ms
+      setLastScrollY(currentScrollY);
+    }, 200), // Throttle the scroll handler to fire every 200ms
+    [lastScrollY] // Only re-create handleScroll when `lastScrollY` changes
+  );
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -34,7 +37,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [lastScrollY]);
+  }, [handleScroll]); // Now handleScroll is correctly listed as a dependency
 
   return (
     <div

@@ -1,25 +1,12 @@
-import Breadcrumb from "@/components/Blog/Breadcrumb";
 import { Container } from "@/components/layouts/Container";
 import { Section } from "@/components/layouts/Section";
-import ContactForm from "@/components/ui/ContactForm";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact | Arid - Travel & Tourism HTML/Tailwind CSS Template",
-  description: "Welcome, Arid - Travel & Tourism HTML/Tailwind CSS Template",
-  keywords: [
-    "tour",
-    "travel",
-    "booking",
-    "rental",
-    "nextJs",
-    "tailwind",
-    "trip",
-    "beach",
-    "holidy",
-    "cruise",
-    "vacation",
-  ],
+  title: "Hakkudai | Contact Us",
+  description:
+    "Welcome to Hakkudai website where you can select or customize the tour and read the blog related to Nepal.",
+  keywords: ["Nepal tour", "Trekking in Nepal", "Hiking in Nepal", "Mustang Bike Ride"],
 };
 
 const Contact = () => {
