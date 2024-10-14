@@ -28,13 +28,17 @@ const Links = () => {
       <div
         onClick={() => setOpen(!open)}
         className="cursor-pointer hover:scale-110 md:hidden text-2xl">
-        {open ? <IoClose className="text-4xl" /> : <GiHamburgerMenu />}
+        {open ? (
+          <IoClose className="text-4xl text-white" />
+        ) : (
+          <GiHamburgerMenu className="text-white" />
+        )}
       </div>
       {open && (
         <div
           className="fixed right-0  flex h-screen w-full flex-col items-end backdrop-blur-lg md:hidden z-[5999] overflow-y-hidden "
           onClick={toggleMenu}>
-          <div className="bg-white fixed  flex h-full w-[90%] flex-col items-center px-4 pt-[50px]">
+          <div className="bg-[#022c22] fixed  flex h-full w-[90%] flex-col items-center px-4 pt-[50px]">
             <div className="flex flex-col items-center gap-7 pt-[10px]">
               <ul className="mt-[20px] flex flex-col gap-4 text-lg">
                 {links.map((link, index) => (
@@ -61,9 +65,9 @@ const Links = () => {
                   </span>
                 </a>
               </div>
-              <div className="mx-auto my-6 h-1 w-[70%] bg-black/50" />
-              <h3>Copyright © {year} &#124; Hakkudai Tours & Travels</h3>
-              <h3>
+              <div className="mx-auto my-6 h-1 w-[98%] bg-white/80" />
+              <h3 className="text-white/90">Copyright © {year} &#124; Hakkudai Tours & Travels</h3>
+              <h3 className="text-white/90">
                 website by{" "}
                 <a
                   href="https://fullstacksherpa.tech"

@@ -1,54 +1,71 @@
-import BlogCard from "@/components/Blog/BlogCard";
-import Breadcrumb from "@/components/Blog/Breadcrumb";
-import { Metadata } from "next";
-import React from "react";
-import { getBlogs } from "@/sanityQueries";
+export const revalidate = 0;
+
+import { Container } from "@/components/layouts/Container";
+import { Heading } from "@/components/ui/Heading";
+import { Section } from "@/components/layouts/Section";
 import { urlFor } from "@/sanity/lib/image";
+import { getBlogCardData } from "@/sanityQueries";
+import Image from "next/image";
+import Link from "next/link";
+import { Customize } from "@/components/sections/Customize";
 
-export const metadata: Metadata = {
-  title: "Travel Blogs | Nepal",
-  description:
-    "Embark on a mesmerizing journey through Nepal with our travel blog! Discover hidden gems, cultural treasures, and breathtaking landscapes as we guide you through the heart of the Himalayas. Immerse yourself in the rich tapestry of Nepal's vibrant traditions, explore ancient temples, and unravel the secrets of this enchanting destination. Join us on a virtual adventure as we share insider tips, local insights, and unforgettable experiences that will inspire your next travel expedition to Nepal.",
+const BlogPage = async () => {
+  const data = await getBlogCardData();
 
-  keywords: [
-    "Nepal tour",
-    "Nepal travel",
-    "Trip to Nepal booking",
-    "Nepal guides",
-    "Nepal Trekking",
-    "Nepal himalayans",
-  ],
-};
-
-const Allblogs = async () => {
-  const blogs = await getBlogs();
   return (
-    <>
-      <Breadcrumb page="" pageTitle="Read our Blogs" bgUrl="/assets/background/blogcrumb.webp" />
-
-      {/*========== BLOG LIST STYLE START ==========*/}
-      <div className="lg:pt-30 pt-24 relative z-1  mx-auto px-2 md:px-4 lg:max-w-screen-lg max-w-screen-sm md:max-w-screen-md">
-        <div className="container">
-          <div className="grid grid-cols-12 lg:gap-12 gap-base">
-            <div className="lg:col-span-12 col-span-12">
-              <div className="grid md:grid-cols-3 grid-cols-2 gap-base">
-                {blogs.map((blog) => (
-                  <BlogCard
-                    slug={blog.slug}
-                    key={blog._id}
-                    title={blog.title}
-                    blogCardImage={urlFor(blog.blogCardImage).url()}
-                    publishedAt={blog.publishedAt}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
+    <Section className="bg-[#022c22]">
+      <Container>
+        <div className="text-white">
+          <Heading as="h1" className="text-4xl leading-none">
+            Our Latest Posts
+          </Heading>
         </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:mt-12 mt-24">
+          {data.map((blog) => {
+            return (
+              <div key={blog._id} className="flex group flex-col gap-8 px-2 md:px-4">
+                <div className="aspect-video rounded-3xl overflow-hidden h-[360px] ">
+                  <Link href={`/blogs/${blog.slug.current}`}>
+                    <Image
+                      src={urlFor(blog.blogCardImage).url()}
+                      alt={blog.title}
+                      width={330}
+                      height={330}
+                      className="w-full h-full group-hover:scale-110 duration-300 object-cover"
+                    />
+                  </Link>
+                </div>
+                <div>
+                  <div>
+                    <h3 className="text-white  text-sub-title mb-4">
+                      <Link href={`/blogs/${blog.slug.current}`}>{blog.title}</Link>
+                    </h3>
+                    <p className="text-neutral-400 line-clamp-2">{blog.excerpt}</p>
+                  </div>
+                  <div className="flex items-center gap-6 mt-6">
+                    <div className="flex items-center gap-3">
+                      <Image
+                        src={urlFor(blog.author.image).url()}
+                        alt="Bruno"
+                        height={40}
+                        width={40}
+                        className="h-[40px] object-cover rounded-full"
+                      />
+                      <span className="text-white">{blog.author.name}</span>
+                    </div>
+                    <span className="text-white">9 min read</span>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </Container>
+      <div className="pt-24">
+        <Customize />
       </div>
-      {/*========== BLOG LIST STYLE END ==========*/}
-    </>
+    </Section>
   );
 };
 
-export default Allblogs;
+export default BlogPage;

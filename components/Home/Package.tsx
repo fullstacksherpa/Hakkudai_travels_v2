@@ -16,7 +16,7 @@ const Package = ({ tours }: PackageProps) => {
           <h5 className="section-sub-title-v1">{PackageDataOne.sub_title}</h5>
           <h2 className="section-title-v1">{PackageDataOne.title}</h2>
         </div>
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-base">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8">
           {tours.slice(0, 5).map((tour) => (
             <PackageCard
               key={tour._id}

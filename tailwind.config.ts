@@ -10,6 +10,16 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "1rem",
+        sm: "2rem",
+        lg: "3rem",
+        xl: "7rem",
+        "2xl": "8rem",
+      },
+    },
     fontSize: {
       xxs: "8px",
       xs: "12px",
