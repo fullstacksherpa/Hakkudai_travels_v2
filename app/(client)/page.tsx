@@ -8,9 +8,10 @@ import { Bblog } from "@/components/sections/Bblog";
 import { Customize } from "@/components/sections/Customize";
 import { TourSection } from "@/components/sections/Tour";
 import { client } from "@/sanity/lib/client";
+import { getBlogCardData } from "@/sanityQueries";
 
 // import { Blog } from "@/utils/interface";
-
+export const revalidate = 30;
 export default async function Home() {
   const query = `*[_type == "video"][0]{
   title,
@@ -18,6 +19,8 @@ export default async function Home() {
 }`;
   const videoData = await client.fetch(query);
   const videoUrl = videoData.videoUrl;
+  const data = await getBlogCardData();
+  const latestBlog = data.slice(0, 4);
   return (
     <>
       <Hero videoUrl={videoUrl} />
@@ -32,7 +35,7 @@ export default async function Home() {
 
       <Clients />
       <div className="px-auto items-center">
-        <Bblog />
+        <Bblog latestBlog={latestBlog} />
       </div>
 
       <div className="mt-9 mx-auto px-2 md:px-4 lg:max-w-screen-lg max-w-screen-sm md:max-w-screen-md">

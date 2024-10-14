@@ -3,23 +3,10 @@
 import { urlFor } from "@/sanity/lib/image";
 import { Container } from "../layouts/Container";
 import { Section } from "../layouts/Section";
-import { getBlogCardData } from "@/sanityQueries";
 import Image from "next/image";
 import Link from "next/link";
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import {
-  Key,
-  ReactElement,
-  JSXElementConstructor,
-  ReactNode,
-  AwaitedReactNode,
-  ReactPortal,
-} from "react";
 
-export const Bblog = async () => {
-  const data = await getBlogCardData();
-  const latestBlog = data.slice(0, 4);
-
+export const Bblog = ({ latestBlog }) => {
   return (
     <Section className=" bg-[#022c22] px-auto">
       <Container>
