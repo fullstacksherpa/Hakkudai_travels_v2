@@ -9,6 +9,7 @@ const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [bgColor, setBgColor] = useState("transparent"); // Track background color
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleScroll = useCallback(
     throttle(() => {
       const currentScrollY = window.scrollY;

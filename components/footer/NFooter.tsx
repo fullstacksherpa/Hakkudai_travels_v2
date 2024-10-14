@@ -7,7 +7,6 @@ import BackToTop from "./BackToTop";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io5";
 import { FaTiktok } from "react-icons/fa";
-import Type from "./Type";
 
 export const NFooter = () => {
   return (
