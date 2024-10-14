@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import Footer from "@/components/footer/Footer";
+// import Footer from "@/components/footer/Footer";
 import WhatsappButton from "@/components/footer/WhatsappButton";
 import Navbar from "@/components/Navbar/Navbar";
 import Head from "next/head"; // Import Head
+import { NFooter } from "@/components/footer/NFooter";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -54,7 +55,8 @@ export default function RootLayout({
           <Navbar />
           {children}
           <WhatsappButton />
-          <Footer />
+          {/* <Footer /> */}
+          <NFooter />
         </ThemeProvider>
       </body>
     </html>

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const AboutOne = () => {
   return (
-    <div className="about_style__one lg:pt-30 pt-24 relative">
+    <div className="about_style__one md:py-30 pt-24 relative">
       <div className="container">
         <div className="grid gap-base items-center max-w-[95%] md:max-w-[80%] place-items-center mx-auto">
           <div className="div">

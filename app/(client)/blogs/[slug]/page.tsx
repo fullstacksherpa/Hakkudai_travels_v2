@@ -1,3 +1,4 @@
+import { Customize } from "@/components/sections/Customize";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "next-sanity";
@@ -34,6 +35,9 @@ export default async function BlogArticle({ params }: { params: { slug: string }
 
       <div className="mt-16 prose prose-lg md:prose-2xl dark:prose-invert w-[90%] mx-auto">
         <PortableText value={data.body} />
+      </div>
+      <div className="pt-24">
+        <Customize />
       </div>
     </div>
   );
