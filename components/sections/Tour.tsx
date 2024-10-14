@@ -16,7 +16,7 @@ export const TourSection = async () => {
       <Container>
         <div>
           <div className="w-full flex justify-between items-center">
-            <h3 className="text-white font-bold px-6 text-3xl md:text-5xl">Most Popular Tours</h3>
+            <h3 className="text-white font-bold px-6 text-3xl md:text-5xl">Popular Tours</h3>
             <button className="border px-6 py-3 rounded-full text-white hover:bg-[#bef264] hover:text-[#022c22] font-semibold">
               <Link href="/package">See all</Link>
             </button>

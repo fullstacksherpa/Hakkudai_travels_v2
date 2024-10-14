@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-// import Footer from "@/components/footer/Footer";
 import WhatsappButton from "@/components/footer/WhatsappButton";
 import Navbar from "@/components/Navbar/Navbar";
 import Head from "next/head"; // Import Head
@@ -47,17 +45,11 @@ export default function RootLayout({
         />
       </Head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange>
-          <Navbar />
-          {children}
-          <WhatsappButton />
-          {/* <Footer /> */}
-          <NFooter />
-        </ThemeProvider>
+        <Navbar />
+        {children}
+        <WhatsappButton />
+        {/* <Footer /> */}
+        <NFooter />
       </body>
     </html>
   );

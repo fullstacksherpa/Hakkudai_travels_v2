@@ -1,4 +1,3 @@
-import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import CmsNavbar from "@/components/studio/Navbar";
 export const metadata = {
@@ -10,10 +9,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <ThemeProvider>
-          <CmsNavbar />
-          {children}
-        </ThemeProvider>
+        <CmsNavbar />
+        {children}
       </body>
     </html>
   );
