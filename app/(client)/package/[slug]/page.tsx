@@ -10,18 +10,6 @@ async function getData(slug: string) {
      title, price, day, tourImage, body
      }[0]
   `;
-  //output
-  // {
-  //     price:3999
-  //   day:2
-  //   tourImage:{…} 2 properties
-  //   _type:image
-  //   asset:{…} 2 properties
-  //   _ref:image-5df3edad76be1295bd5b074886584ac974b40411-719x583-webp
-  //   _type:reference
-  //   body:null
-  //   title:Sukute Beach
-  // }
   const data = await client.fetch(query);
   return data;
 }

@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useState, useEffect } from "react";
 
-export default function Hero({ videoUrl }) {
+export default function Hero({ videoUrl }: any) {
   // State to manage text visibility
   const [showText, setShowText] = useState(true);
 

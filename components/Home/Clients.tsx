@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { client } from "@/sanity/lib/client"; // Sanity client
 // Sanity image URL builder
 import Image from "next/image";
@@ -25,8 +26,8 @@ export default async function ClientsPage() {
       <div className="w-full col-span-2 h-1/2">
         <Marquee autoFill>
           <div className="flex justify-center gap-6 items-start mx-3">
-            {galleries.map((gallery, galleryIndex) =>
-              gallery.images.map((image, imageIndex) => (
+            {galleries.map((gallery: { images: any[] }, galleryIndex: any): any =>
+              gallery.images.map((image, imageIndex): any => (
                 <div key={`${galleryIndex}-${imageIndex}`}>
                   <Image
                     src={image.asset.url} // Using the image URL directly from the Sanity response

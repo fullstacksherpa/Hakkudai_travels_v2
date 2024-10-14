@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { urlFor } from "@/sanity/lib/image";
 import { Container } from "../layouts/Container";
@@ -5,6 +6,15 @@ import { Section } from "../layouts/Section";
 import { getBlogCardData } from "@/sanityQueries";
 import Image from "next/image";
 import Link from "next/link";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import {
+  Key,
+  ReactElement,
+  JSXElementConstructor,
+  ReactNode,
+  AwaitedReactNode,
+  ReactPortal,
+} from "react";
 
 export const Bblog = async () => {
   const data = await getBlogCardData();
@@ -21,7 +31,7 @@ export const Bblog = async () => {
             </button>
           </div>
           <div className="grid mt-12 sm:mt-24 grid-cols-1 md:grid-cols-2 gap-8">
-            {latestBlog.map((blog) => {
+            {latestBlog.map((blog): any => {
               return (
                 <div key={blog._id} className="flex group flex-col gap-8 px-2 md:px-4">
                   <div className="aspect-video rounded-3xl overflow-hidden h-[360px] ">

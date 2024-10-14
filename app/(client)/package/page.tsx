@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const revalidate = 0;
 
 import { Container } from "@/components/layouts/Container";
@@ -22,7 +23,7 @@ const Allpackages = async () => {
           </Heading>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:mt-12 mt-24">
-          {data.map((tour) => {
+          {data.map((tour: any) => {
             return (
               <div key={tour._id} className="flex group flex-col gap-8 px-2 md:px-4">
                 <div className="aspect-video rounded-3xl overflow-hidden h-[360px] ">
