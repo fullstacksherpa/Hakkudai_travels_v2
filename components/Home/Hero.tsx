@@ -32,7 +32,7 @@ export default function Hero({ videoUrl }: any) {
         {/* Centered text */}
         {showText && (
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-3">
-            <h2 className="text-xl text-white">
+            <h2 className="md:text-xl text-md text-white">
               Explore the Wonders of Nepal
               <br /> with Customizable Tours
             </h2>

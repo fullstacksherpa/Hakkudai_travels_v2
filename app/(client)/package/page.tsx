@@ -23,7 +23,7 @@ const Allpackages = async () => {
           </Heading>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:mt-12 mt-24">
-          {data.map((tour: any) => {
+          {data.map((tour) => {
             return (
               <div key={tour._id} className="flex group flex-col gap-8 px-2 md:px-4">
                 <div className="aspect-video rounded-3xl overflow-hidden h-[360px] ">
@@ -39,13 +39,13 @@ const Allpackages = async () => {
                 </div>
                 <div>
                   <div>
-                    <h3 className="text-white  text-sub-title mb-4">
+                    <h3 className="text-white  lg:text-lg text-lg mb-2 leading-1.2 ">
                       <Link href={`/package/${tour.slug.current}`}>{tour.title}</Link>
                     </h3>
                   </div>
-                  <div className="flex items-center gap-6 mt-6">
-                    <div className="flex items-center gap-3">
-                      <LuCalendarDays />
+                  <div className="flex items-center gap-6 justify-between mt-6 px-3">
+                    <div className="flex items-center gap-2">
+                      <LuCalendarDays className="text-white" />
                       <span className="text-white">{tour.day} Days </span>
                     </div>
                     <span className="text-white">Rs. {tour.price}</span>
