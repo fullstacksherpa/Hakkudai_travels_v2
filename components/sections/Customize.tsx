@@ -7,7 +7,7 @@ export const Customize = () => {
   return (
     <section className="py-16 bg-[#bef264] rounded-3xl mx-3 md:mx-5">
       <div className="container">
-        <div className="grid sm:grid-cols-2 gap-3">
+        <div className="grid sm:grid-cols-2 gap-5">
           <h2 className="text-3xl leading-none text-[#1f2e05]">
             Your dream destination awaits –{" "}
             <span className="from-[#d04529] bg-gradient-to-r via-[#f1ab5f] to-[#e9731f] bg-clip-text text-transparent">

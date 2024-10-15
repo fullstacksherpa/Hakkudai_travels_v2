@@ -16,7 +16,7 @@ export const TourSection = async () => {
         <div>
           <div className="w-full flex justify-between items-center">
             <h3 className="text-white font-bold px-6 text-xl md:text-5xl">Popular Tours</h3>
-            <button className="border px-6 py-3 rounded-full text-white hover:bg-[#bef264] hover:text-[#022c22] font-semibold">
+            <button className="border md:px-6 px-3 py-3 rounded-full text-white hover:bg-[#bef264] hover:text-[#022c22] font-semibold">
               <Link href="/package">See all</Link>
             </button>
           </div>
@@ -37,7 +37,7 @@ export const TourSection = async () => {
                   </div>
                   <div>
                     <div>
-                      <h3 className="text-white  lg:text-lg text-lg mb-2 leading-1.2 ">
+                      <h3 className="text-white  lg:text-2xl text-lg mb-2 leading-1.2 ">
                         <Link href={`/package/${tour.slug.current}`}>{tour.title}</Link>
                       </h3>
                     </div>

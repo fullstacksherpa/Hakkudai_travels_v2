@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee";
 
 const HeroBulletin = () => {
   return (
-    <div className="bg-dark-1 md:px-8 py-3 md:py-4 xl:mx-base mx-1 md:mx-3 md:mt-base">
+    <div className="bg-dark-1 py-3 md:py-4 xl:mx-base md:mt-base">
       <Marquee className="lg:text-2md text-base text-white marquee__content" pauseOnHover={true}>
         <Link href="#">Fully Customize your trip by yourself.</Link>
         <Link href="#">10% discount for group of 8 members or more</Link>
