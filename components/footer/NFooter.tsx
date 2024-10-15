@@ -10,7 +10,7 @@ import { FaTiktok } from "react-icons/fa";
 
 export const NFooter = () => {
   return (
-    <div className="p-4">
+    <div className="p-1 md:p-4">
       <footer className="bg-[#022c22] rounded-3xl py-24 sm:py-48 relative overflow-hidden">
         <div className="absolute h-full top-0">
           <FooterBg />
